@@ -1,5 +1,9 @@
 # Media-Jukebox
 
+<p align="left">
+  <img width="460"src="resources/photo.png">
+</p>
+
 ## Project Overview
 YouTube-Jukebox is a personal DIY Project that brings elegant ease-of-use to playing your favourite playlists. 
 
@@ -8,6 +12,13 @@ YouTube-Jukebox is a personal DIY Project that brings elegant ease-of-use to pla
 Create **Themes** fitting your mood and add any number of YouTube playlist to instantly create epic atmosphere with the touch of a button.
 
 The Project details both the electrical implementation and provides the code neccessary Python code. 
+
+## Wiring and GPIO Map ##
+Make sure that the GPIO pins specified in the `gpio_wiring.yaml` respect the electrical wiring.
+
+<p align="left">
+  <img width="400"src="resources/circuit.png">
+</p>
 
 ## Main Components
 
@@ -23,16 +34,11 @@ After booting up, the `peripherals.py` script watches for the same `GPIO3` pin -
 
 To shutdown the Raspberry Pi, simply hold the ON button for more than 3 seconds (when the LED flashes the second time).
 
-
 #### Fan ####
 A small fan is required for safely operating the Raspberry Pi. It can be wired to the `3.3V` pin but then it would still be powered when the Raspberry Pi is shutdown. Therefore it must be controlled with a GPIO pin, but the pins cannot handle large cutrrents, so an *optocoupler* is used. (In this project a standard *relay* is used.)
 
 #### LED ####
 The LED on the front panel is used to signal the press of a button.
-
-#### Wiring and GPIO Map ####
-Make sure that the GPIO pins specified in the `gpio_wiring.yaml` respect the electrical wiring.
-TODO: Wiring Map
 
 ### `youtube_jukebox.py`
 - handles the buttons and selects the Themes accordingly
@@ -44,14 +50,10 @@ Each Theme (*Retro*, *70s*, etc.) has a corresponding button on the front panel.
 #### Themes Buttons ####
 A short press of a button (<3 seconds) selects the corresponding Theme and plays a random song. If the Theme is already selected, it will play the next song. A long press of a button (>3 seconds, signalled by the second blinking of the LED) deselects the playing Theme.
 
-#### Wiring and GPIO Map ####
-Make sure that the GPIO pins specified in the `gpio_wiring.yaml` respect the electrical wiring.
-TODO: Wiring Map
-
 #### YouTube Playlists to Theme - `playlists.yaml` ####
 You can add as many playlists as you like in the `playlists.yaml` file. Specify the Theme name and its corresponding button and you're set. 
 <p align="left">
-  <img width="400"src="documentation_images/adding_playlists.png">
+  <img width="400"src="resources/adding_playlists.png">
 </p>
 
 
